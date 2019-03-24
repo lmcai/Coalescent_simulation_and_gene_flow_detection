@@ -25,7 +25,7 @@ out_prefix=
 
 ###########################################################
 #count triple frequency in empirical data
-triple_writer(speciesTr,geneTr,out_prefix)
+triple_writer(speciesTr,geneTr,paste(out_prefix,'_tripleFr.emp.csv',sep=''))
 
 #output triple frequency matrix written to 'out_prefix__triple_fr_emp.csv'
 
@@ -35,5 +35,24 @@ triple_writer(speciesTr,geneTr,out_prefix)
 speciesTr_BP_text=readLines(speciesTr_BP_path)
 for (i in 1:length(speciesTr_BP_text)){
 	geneTr_sim_text=geneTr_sim(speciesTr_BP_text[i],geneTr_num)
+	simulated_gene_trees=read.tree(geneTr_sim_text)
+	
+	#simulate missing data according to empirical data
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#output to file
+	write.tree(simulated_gene_trees,paste(out_prefix,'.BPspTr',i,'.sim.genetrees',sep=''))
+	
+	#count triple frequency in the simulated data
+	triple_writer(speciesTr,simulated_gene_trees,paste(out_prefix,'_tripleFr.BP',i,'.csv',sep=''))
 }
+
+###########################################################
 

@@ -27,7 +27,7 @@ count_triple_treq<-function(phy,matrix){
 
 
 
-triple_writer<-function(speciesTr,MLgeneTr,prefix){
+triple_writer<-function(speciesTr,MLgeneTr,output_nam){
 	####read in a species tree and initiate values in triple frequency
 	spNam=speciesTr$tip.label
 	ML_triples=combn(spNam,3)
@@ -41,7 +41,7 @@ triple_writer<-function(speciesTr,MLgeneTr,prefix){
 		print(paste('Processing tree',j))
 		ML_triples=count_triple_treq(MLgeneTr[[j]],ML_triples)
 	}
-	write.csv(ML_triples,paste(prefix,'_triple_fr_emp.csv',sep=''))
+	write.csv(ML_triples,output_nam)
 }
 
 
