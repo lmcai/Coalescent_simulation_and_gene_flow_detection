@@ -22,11 +22,11 @@ geneTr=read.tree(geneTr_path)
 geneTr_num=length(geneTr)
 
 #output
-out_prefix=
+out_dir=
 
 ###########################################################
 #count triple frequency in empirical data
-triple_writer(speciesTr,geneTr,paste(out_prefix,'_tripleFr.emp.csv',sep=''))
+triple_writer(speciesTr,geneTr,paste(out_dir,'/tripleFr.emp.csv',sep=''))
 
 #output triple frequency matrix written to 'out_prefix__triple_fr_emp.csv'
 
@@ -55,29 +55,16 @@ for (i in 1:length(speciesTr_BP_text)){
 	
 	
 	#output to file
-	write.tree(simulated_gene_trees,paste(out_prefix,'.BPspTr',i,'.sim.genetrees',sep=''))
+	write.tree(simulated_gene_trees,paste(out_dir,'/geneTr_sim/BPspTr',i,'.sim.genetrees',sep=''))
 	
 	#count triple frequency in the simulated data
-	triple_writer(speciesTr,simulated_gene_trees,paste(out_prefix,'_tripleFr.BP',i,'.csv',sep=''))
+	triple_writer(speciesTr,simulated_gene_trees,paste(out_dir,'/tripleFr_sim/tripleFr.BP',i,'.csv',sep=''))
 }
 
 ###########################################################
 #compare the empirical and the simulated triple frequency distribution and identify significantly unbalanced triples
 
-
-#read triple frequency and find significant unbalanced minor triple through chisq test pvalue
-#x=read.csv('total423.MLgene.triFr.csv')
-#chisq test
-#y=list()
-#for (i in 2:length(x[1,])){
-#	ordered_num=sort(as.numeric(as.character(x[4:6,i])))
-#	y=c(y,chisq.test(ordered_num,p=c((1-ordered_num[3]/sum(ordered_num))/2,(1-ordered_num[3]/sum(ordered_num))/2,ordered_num[3]/sum(ordered_num)))$p.value)
-#}
-#a=which(y<0.05)+1
-
-
-
-
+tripleFr_outlier_detect
 
 
 
