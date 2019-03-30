@@ -15,7 +15,7 @@ speciesTr_path=
 speciesTr=read.tree(speciesTr_path)
 sp_num=length(speciesTr$tip.label)
 
-#bootstrap species tree with branch length in coalescent units
+#bootstrap species trees with branch length in coalescent units
 speciesTr_BP_path=
 speciesTr_BP=read.tree(speciesTr_BP_path)
 
@@ -49,6 +49,7 @@ for (sp in speciesTr$tip.label){
 
 speciesTr_BP_text=readLines(speciesTr_BP_path)
 for (i in 1:length(speciesTr_BP_text)){
+	#simulate gene trees under coalescent model
 	geneTr_sim_text=geneTr_sim(speciesTr_BP_text[i],geneTr_num)
 	simulated_gene_trees=read.tree(geneTr_sim_text)
 	
