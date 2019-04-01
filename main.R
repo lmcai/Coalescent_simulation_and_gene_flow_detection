@@ -72,14 +72,8 @@ for (i in 1:length(speciesTr_BP_text)){
 
 ###########################################################
 #compare the empirical and the simulated triple frequency distribution and identify significantly unbalanced triples
-
-tripleFr_outlier_detect
-
-outliers
-
-
-
-
+#read in csvs of triples frequencies form the empirical data as well as the simulated data
+#output triples with differences in minor triple frequency exceed the maximum value seen in simulation
 
 #output to csv
 write.csv(outliers,paste(out_dir,'/unbalanced_triples.csv',sep=''))
