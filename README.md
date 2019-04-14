@@ -7,5 +7,14 @@ This folder contains scripts used in Cai et al (2019) to simulate gene trees und
 <b>Bug&Usage contact:</b> [lcai@g.harvard.edu](mailto:lcai@g.harvard.edu)
 
 ## Dependencies
+
 R 3.1+; install package phybase and phytools
 *If use the python script 'triple_frequency_counter.py' to count triple frequencies (suitable for trees containing >20 terminals), python library ete3 will need to be installed.
+
+## Input and output
+
+<b>Input:</b> 
+<b>Output:</b> 
+
+## How to
+
