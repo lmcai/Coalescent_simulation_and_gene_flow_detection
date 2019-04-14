@@ -47,7 +47,7 @@ Output files will be in a folder named by the user:
 
 Place your input files in the same folder as these scripts;
 
-Modify 'main.R' to put the names of the input files;
+Modify 'main.R' to add the names of the input files;
 
 Execute 'main.R'.
 
