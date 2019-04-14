@@ -17,7 +17,7 @@ R 3.1+; R package phybase and phytools.
 
 ## Input and output
 
-<b>Input:</b> 
+<b>Input:</b> Species tree with branch lengths measured in coalescent units (can be estimated from MPEST); rooted gene trees
 
 <b>Output:</b> 
 
