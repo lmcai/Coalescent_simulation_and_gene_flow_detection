@@ -54,6 +54,6 @@ Execute 'main.R'.
 <b>More than 15 terminals:</b> 
 
 Counting triple frequencies is the most time consuming step. For trees contain >15 terminals, the python script 'triple_frequency_counter.py' should be used to generate the csv file of triples frequencies.
-After generating bootstrapped gene tree simulation using 'main.R', the triple frequency counting can be run in parallel. The resulting csv files can then be used to find any
+After simulating gene trees using 'main.R', the triple frequency counting can be run in parallel for bootstrap replicates with this python script. The resulting csv files can then be used to find any
 outlier triples whose minor triple frequencies are significantly unbalanced.
 
