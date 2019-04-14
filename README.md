@@ -14,7 +14,7 @@ This folder contains scripts used in Cai et al (2019) to simulate gene trees und
 
 R 3.1+; R package phybase and phytools.
 
-*If use the python script 'triple_frequency_counter.py' to count triple frequencies (suitable for species tree containing >20 terminals), python library ete3 will need to be installed.
+*If use the python script 'triple_frequency_counter.py' to count triple frequencies (suitable for species tree containing >15 terminals), python library ete3 will need to be installed.
 
 
 ## Input and output
@@ -25,9 +25,11 @@ R 3.1+; R package phybase and phytools.
 
 2. Bootstrap species trees with branch lengths measured in coalescent units;
 
-3. Rooted gene trees
+3. Rooted gene trees.
 
 <b>Output:</b> 
+
+Output files will be in a folder named by the user:
 
 1. tripleFr.emp.csv: Triple frequencies in the empirical gene trees;
 
@@ -35,9 +37,23 @@ R 3.1+; R package phybase and phytools.
 
 3. tripleFr.BP*.csv: Triple frequencies in the simulated gene trees. This is the expectation of triple frequency distribution under coalescent model accounting for missing data and estimation error;
 
-4. unbalanced_triples.csv: Triples with significantly unbalanced minor frequencies;
+4. unbalanced_triples.csv: Triples with significantly unbalanced minor frequencies; 'significant' = if the differences between empirical minor frequencies is larger than the largest differences found in simulation;
 
 5. unbalanced_triples_sum.tre: Species tree with node labels reflecting numbers of unbalanced triples that are associated with it.
 
 ## How to
+
+<b>Less than 15 terminals:</b> 
+
+Place your input files in the same folder as these scripts;
+
+Modify 'main.R' to put the names of the input files;
+
+Execute 'main.R'.
+
+<b>More than 15 terminals:</b> 
+
+Counting triple frequencies is the most time consuming step. For trees contain >15 terminals, the python script 'triple_frequency_counter.py' should be used to generate the csv file of triples frequencies.
+After generating bootstrapped gene tree simulation using 'main.R', the triple frequency counting can be run in parallel. The resulting csv files can then be used to find any
+outlier triples whose minor triple frequencies are significantly unbalanced.
 

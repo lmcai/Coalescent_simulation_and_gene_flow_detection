@@ -11,21 +11,21 @@ source('./geneTr_simulator.R')
 
 #input
 #species tree with branch length in coalescent units
-speciesTr_path=
+speciesTr_path='./FILE'
 speciesTr=read.tree(speciesTr_path)
 sp_num=length(speciesTr$tip.label)
 
 #bootstrap species trees with branch length in coalescent units
-speciesTr_BP_path=
+speciesTr_BP_path='./FILE'
 speciesTr_BP=read.tree(speciesTr_BP_path)
 
 #gene trees
-geneTr_path=
+geneTr_path='./FILE'
 geneTr=read.tree(geneTr_path)
 geneTr_num=length(geneTr)
 
 #output
-out_dir=
+out_dir='./FOLDER'
 
 ###########################################################
 #count triple frequency in empirical data
@@ -82,7 +82,7 @@ write.csv(outliers,paste(out_dir,'/unbalanced_triples.csv',sep=''))
 #summarize the percentage of unbalanced triples onto species trees
 
 #read unrooted mpest species tree
-e=read.tree('/Users/lcai/Downloads/Malpighiales_ILS/coal_ana/ExonIntron/total423.mpest.mb.95cs.sum.tre')
+e=speciesTr
 e$node.label=rep(0,length(e$node.label))
 
 get_nodes_leading_to_tips<-function(tree,tips){
