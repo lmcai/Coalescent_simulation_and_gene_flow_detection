@@ -113,7 +113,7 @@ trpl_totoal=e
 trpl_totoal$node.label=rep(0,length(e$tip.label)-1)
 
 for (i in (sp_num+1):(2*sp_num-1)){
-	n_desced=length(getDescendants(x,i))
+	n_desced=length(getDescendants(trpl_totoal,i))
 	sister_desced=sp_num-n_desced
 	if (sister_desced>0){
 		#sample 2 ingroups and one outgroup
@@ -126,8 +126,8 @@ for (i in (sp_num+1):(2*sp_num-1)){
 	if (n_desced>2){
 		#sample tree species from ingroup
 		descend_nodes=trpl_totoal$edge[which(trpl_totoal$edge[,1]==i),2]
-		descend_nodes_nsp1=length(getDescendants(x,descend_nodes[1]))
-		descend_nodes_nsp2=length(getDescendants(x,descend_nodes[2]))
+		descend_nodes_nsp1=length(getDescendants(trpl_totoal,descend_nodes[1]))
+		descend_nodes_nsp2=length(getDescendants(trpl_totoal,descend_nodes[2]))
 		if (descend_nodes_nsp1>1){
 			trpl_totoal$node.label[i-sp_num]=trpl_totoal$node.label[i-sp_num]+descend_nodes_nsp1*(descend_nodes_nsp1-1)/2*descend_nodes_nsp2
 		}
