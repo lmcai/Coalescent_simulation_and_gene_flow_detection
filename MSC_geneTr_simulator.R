@@ -12,21 +12,23 @@ args = commandArgs(trailingOnly=TRUE)
 
 # test if there are three arguments: if not, return an error
 if (length(args)<3) {
-  stop("Please give the path to the species tree, bootstrap species trees, and empirical gene trees.n", call.=FALSE)
+  stop("Not enough arguments. Please give the path to the species tree, bootstrap species trees, and empirical gene trees.n", call.=FALSE)
 }
 
-speciesTr_path=args[1]
+speciesTr_path=as.character(args[1])
 #rooted bootstrap species trees with branch length in coalescent units
-speciesTr_BP_path=args[2]
+speciesTr_BP_path=as.character(args[2])
 #rooted gene trees
-geneTr_path=args[3]
+geneTr_path=as.character(args[3])
 
 
 speciesTr=read.tree(speciesTr_path)
 sp_num=length(speciesTr$tip.label)
 speciesTr_BP=read.tree(speciesTr_BP_path)
+print(paste('There are ',sp_num,' species.',sep=''))
 geneTr=read.tree(geneTr_path)
 geneTr_num=length(geneTr)
+print(paste('There are ',geneTr_num,' gene trees.',sep=''))
 
 ###########################################################
 #simulate gene trees under coalescent model for BP species trees
@@ -51,7 +53,8 @@ speciesTr_BP_text=readLines(speciesTr_BP_path)
 for (i in 1:length(speciesTr_BP_text)){
 	#simulate gene trees under coalescent model
 	geneTr_sim_text=geneTr_sim(speciesTr_BP_text[i],geneTr_num)
-	simulated_gene_trees=read.tree(geneTr_sim_text)
+	write(paste(geneTr_sim_text,collapse='\n'),paste('./geneTr_sim/',i,'.tem.genetrees',sep=''))
+	simulated_gene_trees=read.tree(paste('./geneTr_sim/',i,'.tem.genetrees',sep=''))
 	
 	#simulate missing data according to empirical data
 	for (sp in speciesTr$tip.label){
@@ -64,6 +67,6 @@ for (i in 1:length(speciesTr_BP_text)){
 	
 	
 	#output to file
-	write.tree(simulated_gene_trees,paste('./geneTr_sim/BPspTr',i,'.sim.genetrees',sep=''))
+	write.tree(simulated_gene_trees,paste('./geneTr_sim/BP',i,'.sim.genetrees',sep=''))
 	
 }
