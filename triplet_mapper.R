@@ -1,8 +1,15 @@
 library(ape)
 library(phytools)
-e=read.tree('ML.astral.rooted.tre')
+
+args = commandArgs(trailingOnly=TRUE)
+
+
+###########################
+#map unbalanced triplets to species tree
+
+e=read.tree(as.character(args[1]))
 e$node.label=rep(0,length(e$tip.label)-1)
-outliers=read.table('outliers.filtered.tsv')
+outliers=read.table('unbalanced.trp.tsv')
 get_nodes_leading_to_tips<-function(tree,tips){
 	tip_no=list()
 	tips=as.character(tips)
@@ -36,15 +43,17 @@ get_nodes_leading_to_tips<-function(tree,tips){
 	return(nodes)
 }
 
-
+####################################
+#count raw numbers of unbalanced triples for each node
 sp_num=length(e$tip.label)
 for (i in 1:length(outliers$V1)){
 e$node.label[get_nodes_leading_to_tips(e,unlist(outliers[i,1:3]))-sp_num]=e$node.label[get_nodes_leading_to_tips(e,unlist(outliers[i,1:3]))-sp_num]+1
 }
 e$edge.length=NULL
-write.tree(e,'outliers.filtered.sum.tre')
-q()
+write.tree(e,'unbalancedTriplet.sum.tre')
 
+####################################
+#calculating percentage of unbalanced triple for each node
 
 trpl_totoal=e
 trpl_totoal$node.label=rep(0,length(e$tip.label)-1)
@@ -73,3 +82,7 @@ for (i in (sp_num+1):(2*sp_num-1)){
 		}
 	}
 }
+
+z=e
+z$node.label=as.integer(e$node.label)/as.integer(trpl_totoal$node.label)
+write.tree(z,'unbalancedTriplet.perc.tre')
