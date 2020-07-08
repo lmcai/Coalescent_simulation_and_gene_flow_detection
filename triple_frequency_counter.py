@@ -17,12 +17,12 @@ total_triple=list(itertools.combinations(total_taxon, 3))
 triple_dict={}
 #keys are the sorted species names and values are frequencies of (sp1,sp2) (sp1,sp3) (sp2,sp3) difference_of_minor_triple_frequency
 for i in range(0,len(total_triple)):
-		triple_dict['|'.join(sorted(total_triple[i]))]=[0,0,0,0]
+		triple_dict['|'.join(sorted(total_triple[i]))]=[0,0,0]
 
 ###########################################
 #loop though genes 
 for i in range(0,len(geneTr_text)):
-	print 'Processing tree'+`i`
+	print('Processing tree '+str(i))
 	t = Tree(geneTr_text[i].strip())
 	taxon=list()
 	for leaf in t:taxon.append(leaf.name)
@@ -49,8 +49,11 @@ for i in range(0,len(geneTr_text)):
 
 out=open(sys.argv[1].split('.')[0]+'.trp.tsv','a')
 
-for k, v in triple_dict.iteritems():
-	out.write(k+'\t'+'\t'.join([str(l) for l in v])+'\n')
-
+try:
+	for k, v in triple_dict.iteritems():
+		out.write(k+'\t'+'\t'.join([str(l) for l in v])+'\n')
+except AttributeError:
+	for k, v in triple_dict.items():
+		out.write(k+'\t'+'\t'.join([str(l) for l in v])+'\n')
 out.close()
 
