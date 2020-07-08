@@ -20,11 +20,11 @@ Python 2 or 3; library [ete3](http://etetoolkit.org/docs/2.3/index.html)
 
 <b>Input:</b> 
 
-1. One best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST/ASTRAL on ML gene trees);
+1. One best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST/ASTRAL on ML gene trees, newick format);
 
-2. Bootstrap species trees with branch lengths measured in coalescent units (can be obtained by running MPEST/ASTRAL on bootstrap gene trees);
+2. Bootstrap species trees with branch lengths measured in coalescent units (can be obtained by running MPEST/ASTRAL on bootstrap gene trees, newick format);
 
-3. Rooted gene trees.
+3. Rooted gene trees, newick format.
 
 <b>Output:</b> 
 
@@ -47,6 +47,9 @@ Output files will be in the working folder:
 Place your input files in the same folder as these scripts;
 
 Follow three steps in 'simulator_tripletCounter_tripletMapper.sh' to simulate gene trees, summarize triplet frequency distribution, and map unbalanced triplets to the species tree;
+'''
+sh simulator_tripletCounter_tripletMapper.sh [path_to_species_tree] [path_to_bootstrap_species_trees] [path_to_gene_trees]
+'''
 
 Counting triple frequencies is the most time consuming step. It can be run in parallel for bootstrap replicates with the python script 'triple_frequency_counter.py'. 
 
