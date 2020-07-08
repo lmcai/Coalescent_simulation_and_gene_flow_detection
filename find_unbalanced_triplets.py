@@ -23,13 +23,13 @@ out=open('unbalanced.trp.tsv','a')
 
 MLtrp=open(sys.argv[1].split('.')[0]+'.trp.tsv').readlines()
 MLtrp_dict={}
-unbalanced=[]
+#unbalanced=[]
 for l in MLtrp:
 	a=[int(j) for j in l.split()[1:]]
 	a.sort(reverse=True)
 	if a[-2]-a[-1]>max(BPtrp_dict[l.split()[0]]):
-		out.write(l.strip()+'\t'+str(max(BPtrp_dict[l.split()[0]]))+'\n')
-		unbalanced.append(l.split()[0])
+		out.write('\t'.join(l.split())+'\t'+str(max(BPtrp_dict[l.split()[0]]))+'\n')
+		#unbalanced.append(l.split()[0])
 
 out.close()
 	
