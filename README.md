@@ -21,9 +21,9 @@ R 3.1+; R package phybase and phytools.
 
 <b>Input:</b> 
 
-1. One best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST);
+1. One best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST/ASTRAL on ML gene trees);
 
-2. Bootstrap species trees with branch lengths measured in coalescent units;
+2. Bootstrap species trees with branch lengths measured in coalescent units (can be obtained by running MPEST/ASTRAL on bootstrap gene trees);
 
 3. Rooted gene trees.
 
