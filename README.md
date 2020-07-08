@@ -46,11 +46,11 @@ Output files will be in the working folder:
 
 Place your input files in the same folder as these scripts;
 
-Follow three steps in 'simulator_tripletCounter_tripletMapper.sh' to simulate gene trees, summarize triplet frequency distribution, and map unbalanced triplets to the species tree;
+Follow three steps in `simulator_tripletCounter_tripletMapper.sh` to simulate gene trees, summarize triplet frequency distribution, and map unbalanced triplets to the species tree;
 
 ```
 sh simulator_tripletCounter_tripletMapper.sh [path_to_species_tree] [path_to_bootstrap_species_trees] [path_to_gene_trees]
 ```
 
-Counting triple frequencies is the most time consuming step. It can be run in parallel for bootstrap replicates with the python script 'triple_frequency_counter.py'. 
+Counting triple frequencies is the most time consuming step. It can be run in parallel for bootstrap replicates with the python script `triple_frequency_counter.py`. 
 
