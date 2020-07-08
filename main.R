@@ -8,27 +8,28 @@ library(phytools)
 source('./count_triple_refq.R')
 source('./geneTr_simulator.R')
 
-
-#input
-#species tree with branch length in coalescent units
-speciesTr_path='./FILE'
+###########################################################
+#Input 
+#Modified the path to files
+#rooted species tree with branch length in coalescent units
+speciesTr_path='./path_to_FILE'
 speciesTr=read.tree(speciesTr_path)
 sp_num=length(speciesTr$tip.label)
 
-#bootstrap species trees with branch length in coalescent units
-speciesTr_BP_path='./FILE'
+#rooted bootstrap species trees with branch length in coalescent units
+speciesTr_BP_path='./path_to_FILE'
 speciesTr_BP=read.tree(speciesTr_BP_path)
 
-#gene trees
-geneTr_path='./FILE'
+#rooted gene trees
+geneTr_path='./path_to_FILE'
 geneTr=read.tree(geneTr_path)
 geneTr_num=length(geneTr)
 
 #output
-out_dir='./FOLDER'
+out_dir='./path_to_FOLDER'
 
 ###########################################################
-#count triple frequency in empirical data
+#count triplet frequency in empirical data
 triple_writer(speciesTr,geneTr,paste(out_dir,'/tripleFr.emp.csv',sep=''))
 
 #output triple frequency matrix written to 'out_dir/tripleFr.emp.csv'
