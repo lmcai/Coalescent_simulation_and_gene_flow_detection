@@ -26,4 +26,6 @@ printf "example:\npython triple_frequency_counter.py geneTr_sim/BP1.sim.genetree
 
 #3. Find significantly unbalanced triplets and map to species tree
 python find_unbalanced_triplets.py $speciesTr
+#result in unbalanced.trp.tsv
 Rscript --vanilla triplet_mapper.R $speciesTr
+#result in unbalancedTriplet.sum.tre and unbalancedTriplet.perc.tre
