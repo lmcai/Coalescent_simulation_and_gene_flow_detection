@@ -20,9 +20,9 @@ Python 2 or 3; python library [ete3](http://etetoolkit.org/docs/2.3/index.html)
 
 <b>Input:</b> 
 
-1. One best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST/ASTRAL on ML gene trees, newick format);
+1. One rooted best-estimated species tree with branch lengths measured in coalescent units (can be estimated from MPEST/ASTRAL on ML gene trees, newick format);
 
-2. Bootstrap species trees with branch lengths measured in coalescent units (can be obtained by running MPEST/ASTRAL on bootstrap gene trees, newick format);
+2. Rooted bootstrap species trees with branch lengths measured in coalescent units (can be obtained by running MPEST/ASTRAL on bootstrap gene trees, newick format);
 
 3. Rooted gene trees, newick format.
 
