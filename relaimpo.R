@@ -7,3 +7,8 @@ bootimpo.result <- boot.relimp(data, b = 100,
                     rank = TRUE, diff = TRUE, rela = TRUE)
 
 plot(bootimpo.result)
+
+## function for evaluating bootstrap results
+booteval.relimp(bootimpo.result, bty = "perc", level = 0.95, 
+	sort = FALSE, norank = FALSE, nodiff = FALSE,
+	typesel = c("lmg", "last", "first", "pratt"))
