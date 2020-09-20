@@ -8,7 +8,7 @@ for nd in speciesTr.traverse():
 #outliers=open('outliers.filtered.tsv').readlines()
 #triple_frequency=open('ML.trp.tsv').readlines()
 outliers=open(sys.argv[2]).readlines()
-triple_frequency=open(sys.argv[3]).readlines()
+triple_frequency=open(sys.argv[1].split('.')[0]+'.trp.tsv').readlines()
 
 #dictionary of the second most frequent topology in a triplet, candidates of introgression
 intro_branch_in_triplet={}
@@ -70,5 +70,11 @@ def get_introgression_nodes_leading_to_tips(tr,tips,introgression_tips):
 for l in outliers:
 	speciesTr=get_introgression_nodes_leading_to_tips(speciesTr,l.split()[:3],intro_branch_in_triplet['|'.join(l.split()[:3])])
 
-speciesTr.write(outfile='unbalanced_triples_raw_count.tre',format=1)	
+speciesTr.write(outfile='unbalanced_triples_raw_count.tre',format=1)
+
+#####################
+#calculate Reticulation In dex for each node (raw count/total number of triplets for each node)
+
+
+
 	
