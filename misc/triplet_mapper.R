@@ -70,7 +70,7 @@ for (i in (sp_num+1):(2*sp_num-1)){
 		trpl_totoal$node.label[i-sp_num]=trpl_totoal$node.label[i-sp_num]+n_desced*sister_desced*(sister_desced-1)/2
 	}
 	if (n_desced>2){
-		#sample tree species from ingroup
+		#sample three species from ingroup
 		descend_nodes=trpl_totoal$edge[which(trpl_totoal$edge[,1]==i),2]
 		descend_nodes_nsp1=length(getDescendants(e,descend_nodes[1]))
 		descend_nodes_nsp2=length(getDescendants(e,descend_nodes[2]))

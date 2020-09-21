@@ -28,4 +28,4 @@ printf "example:\npython triple_frequency_counter.py geneTr_sim/BP1.sim.genetree
 python find_unbalanced_triplets.py $speciesTr
 #result in unbalanced.trp.tsv
 python triplet_mapper.py $speciesTr unbalanced.trp.tsv
-#result in unbalanced_triples_raw_count.tre and unbalanced_triples_perc.tre
+#result in unbalanced_triples_raw_count.tre and unbalanced_triples_perc_reticulation_index.tre

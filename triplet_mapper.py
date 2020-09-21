@@ -74,7 +74,25 @@ speciesTr.write(outfile='unbalanced_triples_raw_count.tre',format=1)
 
 #####################
 #calculate Reticulation In dex for each node (raw count/total number of triplets for each node)
+n_taxa_total=len([leaf.name for leaf in speciesTr])
 
+for nd in speciesTr.traverse():
+	#get the number of total triplets associated with each node
+	total_trp_num=float(0)
+	if not nd.is_leaf():
+		#get number of descendants of this node
+		n_child1=len([leaf.name for leaf in nd.children[0]])
+		n_child2=len([leaf.name for leaf in nd.children[1]])
+		n_out=n_taxa_total-n_child1-n_child2
+		#one or two species are outside this node
+		total_trp_num=total_trp_num + (n_child1+n_child2)*n_out*(n_child1+n_child2+n_out-2)/2
+		#all three species are descendants of this node
+		if n_child1+n_child2>2:
+			total_trp_num=total_trp_num + n_child1*n_child2*(n_child1+n_child2-2)/2
+		try:
+			nd.name=float(nd.name)/total_trp_num
+		except ValueError:pass
 
-
+		
+speciesTr.write(outfile='unbalanced_triples_perc_reticulation_index.tre',format=1)
 	
