@@ -73,7 +73,7 @@ for l in outliers:
 speciesTr.write(outfile='unbalanced_triples_raw_count.tre',format=1)
 
 #####################
-#calculate Reticulation In dex for each node (raw count/total number of triplets for each node)
+#calculate Reticulation Index for each node (raw count/total number of triplets for each node)
 n_taxa_total=len([leaf.name for leaf in speciesTr])
 
 for nd in speciesTr.traverse():
