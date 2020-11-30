@@ -1,4 +1,4 @@
-#0. input files, please see read me for the format of these files
+#0. input files, please see readme for the format of these files
 #path to rooted species tree (newick format), branch length in coalescent units
 speciesTr=$1
 #path to rooted bootstrap species trees (newick format), branch length in coalescent units
