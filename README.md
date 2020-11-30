@@ -3,7 +3,7 @@
 This folder contains scripts used in Cai et al (2019) to simulate gene trees under coalescent model with bootstrap and subsequently detect gene flow using triple frequency in gene trees.
 <div id="citation"></div>
 
-<b>Citation:</b> Liming Cai, Zhenxiang Xi, Emily Moriarty Lemmon, Alan R. Lemmon, Austin Mast, Christopher E. Buddenhagen, Liang Liu, Charles C. Davis. 2019. The Perfect Storm: Gene Tree Estimation Error, Incomplete Lineage Sorting, and Ancient Gene Flow Explain the Most Recalcitrant Ancient Angiosperm Clade, Malpighiales. biorxiv. https://www.biorxiv.org/content/10.1101/2020.05.26.112318v1
+<b>Citation:</b> Liming Cai, Zhenxiang Xi, Emily Moriarty Lemmon, Alan R. Lemmon, Austin Mast, Christopher E. Buddenhagen, Liang Liu, Charles C. Davis. 2019. The Perfect Storm: Gene Tree Estimation Error, Incomplete Lineage Sorting, and Ancient Gene Flow Explain the Most Recalcitrant Ancient Angiosperm Clade, Malpighiales. Systematic Biology, syaa083, https://doi.org/10.1093/sysbio/syaa083
 
 <b>License:</b> GPL https://www.gnu.org/licenses/gpl-3.0.html
 
