@@ -91,3 +91,7 @@ It quantifies the level of incomplete lineage sorting in each node of the specie
 It quantifies the level of potential gene flow for each node. We will use the reticulate index from the `unbalancedTriplet.perc.tre` directly. These values are sotred in the node labels.
 
 <b>Regression analysis in R</b> 
+
+Format the data above into a matrix. Make sure each row correspond to the same internal node. Use the example script `ralaimpo.R` to conduct importance decomposition. If you have different column names for variables, just make sure you change them accordingly when running the analysis.
+
+An example input file can be found in `example/relative_contribution_ILS_Err_Intro.csv`. In this example, I scaled all the variables linearly to 1 to 100. This is *unnecessary*. You can totally use raw numbers. 
