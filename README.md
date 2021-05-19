@@ -7,7 +7,7 @@ This folder contains scripts used in Cai et al (2019) to simulate gene trees und
 
 <b>License:</b> GPL https://www.gnu.org/licenses/gpl-3.0.html
 
-<b>Usage contact:</b> [lcai@g.harvard.edu](mailto:lcai@g.harvard.edu)
+<b>Usage contact:</b> [daybreak.chua@gmail.com](mailto:daybreak.chua@gmail.com)
 
 
 ## Dependencies
@@ -54,3 +54,6 @@ sh simulator_tripletCounter_tripletMapper.sh [path_to_species_tree] [path_to_boo
 
 Counting triple frequencies is the most time consuming step. It can be run in parallel for bootstrap replicates with the python script `triple_frequency_counter.py`. 
 
+## Dissecting the relative importance of gene tree estimation error, ILS, and gene flow
+
+All of the three above mentioned factors can generate gene tree variations. Using a regression model, their relative contribution to the overall gene tree variation can be estimated.
