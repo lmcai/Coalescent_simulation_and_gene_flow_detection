@@ -57,3 +57,13 @@ Counting triple frequencies is the most time consuming step. It can be run in pa
 ## Dissecting the relative importance of gene tree estimation error, ILS, and gene flow
 
 All of the three above mentioned factors can generate gene tree variations. Using a regression model, their relative contribution to the overall gene tree variation can be estimated.
+
+We will use the regression method implemented in the R package [relaimpo](https://cran.r-project.org/web/packages/relaimpo/relaimpo.pdf) to assess relative importance in linear models.
+
+The input is a matrix of dependent variable (gene tree variation) and three independent variable (gene tree error, ILS, and gene flow) across all internal nodes. Each row corresponds to these values for one internal node. The more internal nodes you have, the more powerful the regression analysis is. It is advised that there should be at least 10 observations per variable, so we ideally want at least 30 internal nodes.
+
+<b>Iutput:</b> 
+
+1. The dependent variable — Gene tree variation
+
+It quantifies gene tree topological variation across the tree. I found the easiest way to calculate this value is to use bootstrap gene trees to estimate gene concordance factor (gCF) in IQTREE. For exampled, if you have 20 genes, you will have 20 x 100 bootstrap gene trees assuming you conducted 100 replicates. You can combine these 2000 gene trees into one file and calculate gCF in IQTREE.
