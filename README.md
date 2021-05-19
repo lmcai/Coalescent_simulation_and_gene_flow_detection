@@ -62,7 +62,7 @@ We will use the regression method implemented in the R package [relaimpo](https:
 
 The input is a matrix of dependent variable (gene tree variation) and three independent variable (gene tree error, ILS, and gene flow) across all internal nodes. Each row corresponds to these values for one internal node. The more internal nodes you have, the more powerful the regression analysis is. It is advised that there should be at least 10 observations per variable, so we ideally want at least 30 internal nodes.
 
-<b>Input:</b> 
+<b>Input</b> 
 
 1. The dependent variable — Gene tree variation
 
@@ -84,4 +84,10 @@ raxmlHPC -f b -t species.tre -z sim_gene.trees -m GTRGAMMA -n ERR
 
 3. ILS
 
-It quantifies the level of incomplete lineage sorting in each node of the species tree.
+It quantifies the level of incomplete lineage sorting in each node of the species tree. We will directly use the theta estimated for each node. To calculate theta, infer a species tree under the coalescent model first using MPEST or ASTRAL. The branch length is in coalescent unit. Then infer its branch length in mutation unit using RAxML or IQTREE using fixed topology. The value of theta for each node can be estimated by dividing the branch lengths estimated from RAxML/IQTREE (mutation units) by that estimated from MPEST/ASTRAL (coalescent units). 
+
+4. Gene flow
+
+It quantifies the level of potential gene flow for each node. We will use the reticulate index from the `unbalancedTriplet.perc.tre` directly. These values are sotred in the node labels.
+
+<b>Regression analysis in R</b> 
