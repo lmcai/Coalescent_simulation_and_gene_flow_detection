@@ -66,8 +66,22 @@ The input is a matrix of dependent variable (gene tree variation) and three inde
 
 1. The dependent variable — Gene tree variation
 
-It quantifies gene tree topological variation across the tree. The easiest way to calculate this value is to calculate gene concordance factor (gCF) using bootstrap gene trees in IQTREE (because it accommodates missing taxa). For exampled, if you have 20 genes, you will have 20 x 100 bootstrap gene trees assuming you conducted 100 replicates. You can combine these 2000 gene trees into one file called `BSgenetree.trees` and calculate gCF in IQTREE.
+It quantifies gene tree topological variation across the tree. The easiest way to calculate this value is to calculate [gene concordance factor (gCF)](http://www.iqtree.org/doc/Concordance-Factor) using bootstrap gene trees in IQTREE (because it accommodates missing taxa). For exampled, if you have 20 genes, you will have 20 x 100 bootstrap gene trees assuming you conducted 100 replicates. You can combine these 2000 gene trees into one file called `BSgenetree.trees` and calculate gCF in IQTREE.
 
 ```
 iqtree -t species.tre --gcf BSgenetree.trees --prefix concord
 ```
+
+2. Gene tree estimation error
+
+It quantifies the anticipated level of analytical error for each node in the species tree, which is largely affected by the length of the internal branch. Its calculation requires alignment simulation, gene tree estimation, and bipartition summarization. Briefly, using the species tree as the reference tree to simulate alignments using substitution parameters inferred from RAxML or IQTREE. Many tools can be used for simulation. Some timeless ones include [SeqGen](http://tree.bio.ed.ac.uk/software/seqgen/) and [bppseqgen](file:///Users/limingcai/Downloads/bppsuite.html#bppseqgen). You can set the length of the simulated alignment to be equal to the mean/median of your empirical data. I simulate 100 alignments to achieve a stable estimation per node. Replicate number of 200 or more may have vanishing returns.
+
+Next, we infer the gene trees for all simulated alignments using your favourite tree builder such as RAxML or IQTREE. Then we calculate how often each node in the species tree is recovered in the inferred gene trees `sim_gene.trees` using the bipartition in RAxML.
+
+```
+raxmlHPC -f b -t species.tre -z sim_gene.trees -m GTRGAMMA -n ERR
+```
+
+3. ILS
+
+It quantifies the level of incomplete lineage sorting in each node of the species tree.
