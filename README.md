@@ -70,7 +70,7 @@ Error in if (z[i]) { : missing value where TRUE/FALSE needed
 Calls: read.tree
 Execution halted
 ```
-This is likely due to the incorrect input tree format in the initial simulation step in phybase. Please make sure your species trees DO NOT have node labels, DO NOT MISS any branch lengths, and DO NOT contain 0 length branches. If some branches are inferred to be 0, you can replace it with a really small value such as 1e-5.
+This is most likely due to the incorrect input tree format in the initial simulation step in phybase. Please make sure your species trees DO NOT have node labels, DO NOT MISS any branch lengths, and DO NOT contain 0 length branches. If some branches are inferred to be 0, you can replace it with a really small value such as 1e-5.
 
 ## Dissecting the relative importance of gene tree estimation error, ILS, and gene flow
 
