@@ -4,9 +4,9 @@ library(relaimpo)
 x=read.csv('./example/relative_contribution_ILS_Err_Intro.csv')
 data=x[,c('Y_BSsum','X1_ILS','X2_Err','X3_Hyb')]
 #calculate relative importance
-calc.relimp(data, type = "lmg")
+calc.relimp(data, type = "lmg",rela=TRUE)
 
-#bootstrap for condifence intervals
+#bootstrap for confidence intervals
 bootimpo.result <- boot.relimp(Y_BSsum~X1_ILS+X2_Err+X3_Hyb,data=data, b = 100,
                     type = c("lmg", "last", "first", "pratt"),
                     rank = TRUE, diff = TRUE, rela = TRUE)
