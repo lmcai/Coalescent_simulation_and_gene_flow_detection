@@ -3,9 +3,15 @@ library(relaimpo)
 
 x=read.csv('./example/relative_contribution_ILS_Err_Intro.csv')
 data=x[,c('Y_BSsum','X1_ILS','X2_Err','X3_Hyb')]
-bootimpo.result <- boot.relimp(data, b = 100,
+#calculate relative importance
+calc.relimp(data, type = "lmg")
+
+#bootstrap for condifence intervals
+bootimpo.result <- boot.relimp(Y_BSsum~X1_ILS+X2_Err+X3_Hyb,data=data, b = 100,
                     type = c("lmg", "last", "first", "pratt"),
                     rank = TRUE, diff = TRUE, rela = TRUE)
+
+booteval.relimp(bootimpo.result,lev=0.9,nodiff=TRUE)
 
 ## Plot
 plot(booteval.relimp(bootimpo.result))
