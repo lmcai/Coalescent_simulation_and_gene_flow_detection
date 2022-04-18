@@ -47,7 +47,7 @@ for i in range(0,len(geneTr_text)):
 		print('bad rooting')
 		pass
 
-out=open(sys.argv[1].split('.')[0]+'.trp.tsv','a')
+out=open(sys.argv[2].split('.')[0]+'.trp.tsv','a')
 
 try:
 	for k, v in triple_dict.iteritems():
